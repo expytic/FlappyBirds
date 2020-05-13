@@ -92,9 +92,7 @@ public class Handler {
 	 */
 	public void setBirdImage() {
 		for(GameObject obj : objects) {
-			if (obj instanceof Player) {
-				((Player)obj).setImg(Game.getCurrentBirdImg());;
-			}
+			if (obj instanceof Player) ((Player)obj).setImg(Game.getCurrentBirdImg());;
 		}
 	}
 }

@@ -69,34 +69,23 @@ public class Menu extends MouseAdapter{
 			}else if(mouseOver(mouseX, mouseY, 540, 250, fieldWidth, fieldHeight)) {
 				game.restart();
 				Game.gamestate = GameState.MainMenu;
-			}else if(mouseOver(mouseX, mouseY, 540, 350, fieldWidth, fieldHeight)) {
-				System.exit(1);
-			}
-			break;
+			}else if(mouseOver(mouseX, mouseY, 540, 350, fieldWidth, fieldHeight)) System.exit(1);
+		break;
 		case Help:
 			if(mouseOver(mouseX, mouseY, 540, 350, fieldWidth, fieldHeight)) {
-				if(gamerunning) {
-					Game.gamestate = GameState.Paused;
-				}else {
-					Game.gamestate = GameState.MainMenu;
-				}
+				if(gamerunning) Game.gamestate = GameState.Paused;
+				else Game.gamestate = GameState.MainMenu;
 			}
-			break;
+		break;
 		case MainMenu:
-			if(mouseOver(mouseX, mouseY, 540, 150, fieldWidth, fieldHeight)) {
-				Game.gamestate = GameState.Playing;
-			}else if(mouseOver(mouseX, mouseY, 540, 250, fieldWidth, fieldHeight)) {
-				Game.gamestate = GameState.ChooseBird;
-			}else if(mouseOver(mouseX, mouseY, 540, 350, fieldWidth, fieldHeight)) {
-				Game.gamestate = GameState.Help;
-			}else if(mouseOver(mouseX, mouseY, 540, 450, fieldWidth, fieldHeight)) {
-				System.exit(1);
-			}
-			break;
+			if(mouseOver(mouseX, mouseY, 540, 150, fieldWidth, fieldHeight)) Game.gamestate = GameState.Playing;
+			else if(mouseOver(mouseX, mouseY, 540, 250, fieldWidth, fieldHeight)) Game.gamestate = GameState.ChooseBird;
+			else if(mouseOver(mouseX, mouseY, 540, 350, fieldWidth, fieldHeight)) Game.gamestate = GameState.Help;
+			else if(mouseOver(mouseX, mouseY, 540, 450, fieldWidth, fieldHeight)) System.exit(1);
+		break;
 		case Paused:
-			if(mouseOver(mouseX, mouseY, 540, 150, fieldWidth, fieldHeight)) {
-				Game.gamestate = GameState.Playing;
-			}else if(mouseOver(mouseX, mouseY, 540, 250, fieldWidth, fieldHeight)) {
+			if(mouseOver(mouseX, mouseY, 540, 150, fieldWidth, fieldHeight)) Game.gamestate = GameState.Playing;
+			else if(mouseOver(mouseX, mouseY, 540, 250, fieldWidth, fieldHeight)) {
 				game.restart();
 				Game.gamestate = GameState.Playing;
 			}else if(mouseOver(mouseX, mouseY, 540, 350, fieldWidth, fieldHeight)) {
@@ -104,13 +93,10 @@ public class Menu extends MouseAdapter{
 				Game.gamestate = GameState.MainMenu;
 			}else if(mouseOver(mouseX, mouseY, 540, 450, fieldWidth, fieldHeight)) {
 				Game.gamestate = GameState.Help;
-			}else if(mouseOver(mouseX, mouseY, 540, 550, fieldWidth, fieldHeight)) {
-				System.exit(1);
-			}
-			
-			break;
+			}else if(mouseOver(mouseX, mouseY, 540, 550, fieldWidth, fieldHeight)) System.exit(1);
+		break;
 		case Playing:
-			break;
+		break;
 		case ChooseBird:
 			
 			for(int i = 0; i < 5; i++) {
@@ -145,9 +131,8 @@ public class Menu extends MouseAdapter{
 	 */
 	private boolean mouseOver(int mouseX, int mouseY, int fieldX, int fieldY, int width, int height) {
 		if(mouseX > fieldX && mouseX < fieldX + width) {
-			if(mouseY > fieldY && mouseY < fieldY + height) {
-				return true;
-			}else return false;
+			if(mouseY > fieldY && mouseY < fieldY + height) return true;
+			else return false;
 		}else return false;
 	}
 	
@@ -259,7 +244,7 @@ public class Menu extends MouseAdapter{
 			g.setFont(fnt);
 			g.setColor(Color.white);
 			g.drawString("Score: " + game.getHandler().getScore(), 10, 50);
-			break;
+		break;
 		case ChooseBird:
 			g.setColor(Color.black);
 			g.setFont(fnt2);
@@ -278,9 +263,10 @@ public class Menu extends MouseAdapter{
 			
 			g.drawRect(540, 550, fieldWidth, fieldHeight);
 			g.drawString("Quit", getXForString(g, "Quit"), 590);
-			
+		
+		break;
 		default:
-			break;
+		break;
 		
 		}
 		g.drawImage(topomedicsLogo, 1170, 5, 88, 18, null);

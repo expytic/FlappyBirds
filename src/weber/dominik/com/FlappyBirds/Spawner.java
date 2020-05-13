@@ -18,9 +18,7 @@ public class Spawner {
 	 * Spawnt Pipes wenn diese genugweit entfernt sind
 	 */
 	public void tick() {
-		if(1400 - getAbstandXnextP() > 400) {
-			spawnpipes();
-		}
+		if(1400 - getAbstandXnextP() > 400) spawnpipes();
 	}
 	
 	/**
@@ -42,9 +40,7 @@ public class Spawner {
 		float biggestX = 0;
 		for(int i = 0; i < handler.getObjectsSize(); i++) {
 			GameObject obj = handler.getObject(i);
-			if(biggestX < obj.getPosX()){
-				biggestX = obj.getPosX();
-			}
+			if(biggestX < obj.getPosX()) biggestX = obj.getPosX();
 		}
 		return biggestX;
 	}

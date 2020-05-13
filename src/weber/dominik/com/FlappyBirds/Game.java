@@ -80,9 +80,7 @@ public class Game extends Canvas implements Runnable{
 	public void restart() {
 		handler = new Handler();
 		KeyListener[] keyListener = this.getKeyListeners();
-			if (keyListener[0] instanceof KeyInput) {
-				((KeyInput) keyListener[0]).setHandler(handler);
-		}
+		if (keyListener[0] instanceof KeyInput) ((KeyInput) keyListener[0]).setHandler(handler);
 	}
 	
 	/**
@@ -125,9 +123,7 @@ public class Game extends Canvas implements Runnable{
 				tick();
 				delta--;
 			}
-			if(running) {
-				render();
-			}
+			if(running) render();
 			frames++;
 			
 			if(System.currentTimeMillis() - timer > 1000) {

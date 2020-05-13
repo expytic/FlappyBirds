@@ -66,9 +66,7 @@ public class Player extends GameObject{
 		for(int i = 0; i < handler.getObjectsSize(); i++) {
 			GameObject tempObject = handler.getObject(i);
 			if(tempObject instanceof Pipe) {
-				if(getBounds().intersects(tempObject.getBounds())) {
-					return true;				
-				}
+				if(getBounds().intersects(tempObject.getBounds())) return true;
 			}
 		}
 		return false;
@@ -94,9 +92,9 @@ public class Player extends GameObject{
 	 */
 	@Override
 	void render(Graphics g) {
+		g.drawImage(img, (int)posX, (int)posY, width, height, null);
 		//g.setColor(Color.red);			
 		//g.drawRect((int)posX, (int)posY, width, height);					//hitboxanzeige
-		g.drawImage(img, (int)posX, (int)posY, width, height, null);
 	}
 	/**
 	 * setzt die Vertikale Geschwindigkeit gegen unten

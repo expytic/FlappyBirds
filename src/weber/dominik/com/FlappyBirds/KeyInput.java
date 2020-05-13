@@ -25,9 +25,7 @@ public class KeyInput extends KeyAdapter{
 			GameObject tempObject = handler.getObject(i);
 			
 			if(tempObject instanceof Player) {
-				if(key == KeyEvent.VK_SPACE) {
-					((Player) tempObject).setVelY(-7f);
-				}
+				if(key == KeyEvent.VK_SPACE) ((Player) tempObject).setVelY(-7f);
 				break;
 			}
 		}

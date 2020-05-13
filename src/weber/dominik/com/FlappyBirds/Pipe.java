@@ -28,9 +28,7 @@ public class Pipe extends GameObject{
 	void tick(Handler handler) {
 		posX += velX;
 		posY += velY;
-		if(posX + width < 0) {
-			handler.removeObject(this);
-		}
+		if(posX + width < 0) handler.removeObject(this);
 	}
 	/**
 	 * zeichnet die pipe im fenster
